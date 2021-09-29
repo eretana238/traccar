@@ -22,7 +22,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
 
-public abstract class BaseFrameDecoder extends ByteToMessageDecoder {
+public abstract class AbstractBaseFrameDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {

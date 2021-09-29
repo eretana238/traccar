@@ -97,7 +97,7 @@ public abstract class BaseProtocol implements Protocol {
                 channel.writeAndFlush(new NetworkMessage(buf, remoteAddress));
             }
         } else {
-            throw new RuntimeException("Command " + command.getType() + " is not supported in protocol " + getName());
+            throw new SendDataException("Command " + command.getType() + " is not supported in protocol " + getName());
         }
     }
 
@@ -115,14 +115,14 @@ public abstract class BaseProtocol implements Protocol {
                 if (encodedCommand != null) {
                     Context.getSmsManager().sendMessageSync(destAddress, encodedCommand, true);
                 } else {
-                    throw new RuntimeException("Failed to encode command");
+                    throw new SendDataException("Failed to encode command");
                 }
             } else {
-                throw new RuntimeException(
+                throw new SendDataException(
                         "Command " + command.getType() + " is not supported in protocol " + getName());
             }
         } else {
-            throw new RuntimeException("SMS is not enabled");
+            throw new SendDataException("SMS is not enabled");
         }
     }
 

@@ -31,8 +31,8 @@ import java.net.SocketAddress;
 
 public class WrapperContext implements ChannelHandlerContext {
 
-    private ChannelHandlerContext context;
-    private SocketAddress remoteAddress;
+    private final ChannelHandlerContext context;
+    private final SocketAddress remoteAddress;
 
     public WrapperContext(ChannelHandlerContext context, SocketAddress remoteAddress) {
         this.context = context;
